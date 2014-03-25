@@ -1,6 +1,8 @@
 Springies README
 =========
 
+CompSci 308 (Software Design & Implementation)
+
 Group Members: Grace Chen, Shenghan Chen
 
 Started 1/27/14
