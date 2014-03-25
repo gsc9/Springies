@@ -1,0 +1,40 @@
+Part 1: Design Document
+=========
+
+###Necessary Packages and Classes
+
+The basic classes should include Mass, Spring, and Muscle (which could possibly extend spring,
+since "muscles" are what allow springs to bounce). Mass will include the physical properties of
+a physical object in general; Spring should extend Mass because it is an object of mass; and 
+Muscle should extend Spring, because Muscle will contain the physical properties of a spring
+that will allow Spring objects to bounce with varying physical parameters.
+
+The Mass class will take in parameters like the starting position (x and y coordinates) and 
+starting motion (x speed and y speed). For the purposes of simulating spring-mass assemblies
+persuasively, we will probably have to include the actual mass of the Mass object as well.
+The Mass class will probably extend the PhysicalObject class in jboxGlue.
+
+The Spring class will take in parameters for the length of the spring and the k-value of the
+spring. To establish the position of the spring, we will take in parameters for the coordinate
+of the center of the spring and its orientation (x and y coordinates). This class will also
+extend PhysicalObject.
+
+The Muscle class will extend the Spring class, and will allow for Spring objects to expand and
+contract (and otherwise be like a spring). The Muscle class should take in parameters for the
+amount of force placed on either of its ends (which could be either from a Mass object or
+from an outside force like gravity). The Muscle class will also, at some point, use Math.sin()
+to simulate the sinusoidal motion of a spring. There are also other features of Muscles in
+SodaPlay that we have not explored very deeply, such as autoreversal of wave movement,
+but it seems that the behaviors and the parameters of waves will factor heavily into the 
+Muscle class. 
+
+We looked at the project description and noticed that things like gravity, friction, and 
+viscosity will also need to be taken into account. Speaking from a very high level, these 
+forces could also be classes, and would affect the x- and y-direction speeds of masses and 
+springs. Since these classes will concern speed, we could arrange for these classes to 
+be subclasses of one superclass that controls for all physical aspects of the "world." Another
+possibility is that one of these classes will be the superclass of the remaining classes.
+
+The user will also have to be prompted for certain inputs, like which XML files to load, but
+the need for user input will probably be scattered throughout the different classes, so we're
+not sure if we will consolidate user input into a single class or not.
